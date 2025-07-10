@@ -1,0 +1,14 @@
+contador = 0
+
+print("Presiona ENTER para contar un evento. Escribe 'salir' para terminar.")
+
+while True:
+    entrada = input("> ")
+
+    if entrada.lower() == "salir":
+        break
+
+    contador += 1
+    print(f"Eventos contados: {contador}")
+
+print(f"Total de eventos: {contador}")
