@@ -1,5 +1,15 @@
-contador = 0
+import os
 
+archivo = "contador.txt"
+
+# Leer el contador desde el archivo (si existe)
+if os.path.exists(archivo):
+    with open(archivo, "r") as f:
+        contador = int(f.read())
+else:
+    contador = 0
+
+print(f"Eventos actuales: {contador}")
 print("Presiona ENTER para contar un evento. Escribe 'salir' para terminar.")
 
 while True:
@@ -11,4 +21,8 @@ while True:
     contador += 1
     print(f"Eventos contados: {contador}")
 
-print(f"Total de eventos: {contador}")
+    # Guardar el nuevo valor del contador
+    with open(archivo, "w") as f:
+        f.write(str(contador))
+
+print(f"Total final de eventos guardado: {contador}")
